@@ -6,7 +6,7 @@
 	slackApi.value("slackConfig", {
 		OAuthUrl: "https://slack.com/oauth/authorize",
 		ApiUrl: "https://slack.com/api/",
-		DefaultToken: ""
+		DefaultToken: "xoxb-35865586402-S794qTDYJXLepR0EdLphJiTG"
 	});
 
 }(angular));

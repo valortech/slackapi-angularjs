@@ -148,11 +148,11 @@
         }
 
 
-        function startRtm(token) {
+        function startRtm(token,callback) {
             var params = {
                 token: token || slackConfig.DefaultToken
             };
-            executeApiCall("auth.test", params);
+            executeApiCall("rtm.start",params,callback);
         }
 
         //AUTH
@@ -180,31 +180,31 @@
             executeApiCall("auth.test", params, callback);
         }
         // CHANNELS
-        function archiveChannel(channeId, callback, token) {
+        function archiveChannel(channelID, callback, token) {
             var params = {
                 token: token || slackConfig.DefaultToken,
-                channel: channeId
+                channel: channelID
             };
             executeApiCall("channels.archive", params, callback);
         }
-        function channelUnarchive(channeId, callback, token) {
+        function channelUnarchive(channelID, callback, token) {
             var params = {
                 token: token || slackConfig.DefaultToken,
-                channel: channeId
+                channel: channelID
             };
             executeApiCall("channels.unarchive", params, callback);
         }
-        function channelHistory(channeId, callback, token) {
+        function channelHistory(channelID, callback, token) {
             var params = {
                 token: token || slackConfig.DefaultToken,
-                channel: channeId
+                channel: channelID
             };
             executeApiCall("channels.history", params, callback);
         }
-        function channelInvite(channeId, userId, callback, token) {
+        function channelInvite(channelID, userId, callback, token) {
             var params = {
                 token: token || slackConfig.DefaultToken,
-                channel: channeId,
+                channel: channelID,
                 user: userId
             };
             executeApiCall("channels.invite", params, callback);
@@ -285,26 +285,26 @@
         }
 
         // CHAT
-        function postMessage(channeId, message, callback, token) {
+        function postMessage(channelID, message, callback, token) {
             var params = {
                 token: token || slackConfig.DefaultToken,
-                channel: channeId,
+                channel: channelID,
                 text: message
             };
             executeApiCall("chat.postMessage", params, callback);
         }
-        function deleteMessage(channeId, timestamp, callback, token) {
+        function deleteMessage(channelId, timestamp, callback, token) {
             var params = {
                 token: token || slackConfig.DefaultToken,
-                channel: channeId,
+                channel: channelId,
                 ts: timestamp
             };
             executeApiCall("chat.delete", params, callback);
         }
-        function updateMessage(channeId, timestamp, newMessage, callback, token) {
+        function updateMessage(channelID, timestamp, newMessage, callback, token) {
             var params = {
                 token: token || slackConfig.DefaultToken,
-                channel: channeId,
+                channel: channelID,
                 ts: timestamp,
                 text: newMessage
             };
@@ -430,7 +430,7 @@
         }
 
         function notImplemented() {
-            $log.log("Method not implemented. Remind nickaranz@gmail.com to quit slacking");
+            $log.log("Method not implemented. Please consider posting a bounty here https://nxtforum.org/nxt-plugins/");
         }
 
     }]);
