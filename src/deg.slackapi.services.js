@@ -289,6 +289,7 @@
             var params = {
                 token: token || slackConfig.DefaultToken,
                 channel: channelID,
+                as_user : true,
                 text: message
             };
             executeApiCall("chat.postMessage", params, callback);
